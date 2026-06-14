@@ -151,27 +151,52 @@ export default function ProjectsPage() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 14 }}>
           {filtered.map(p => (
-            <div key={p.id} style={{ background: '#fff', border: '1px solid rgba(0,0,0,.09)', borderRadius: 10, padding: 18, boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
-                <div>
-                  <div style={{ fontSize: 11, color: '#c09030', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 3 }}>{p.type}</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: '#111' }}>{p.name}</div>
-                </div>
-                <div style={{ display: 'flex', gap: 5, flexShrink: 0 }}>
-                  {p.featured && <span style={{ background: '#fff8e6', color: '#c09030', border: '1px solid #f0d98a', borderRadius: 4, fontSize: 10, fontWeight: 700, padding: '2px 6px' }}>★ FEAT</span>}
-                  <span style={{ background: p.status === 'in-progress' ? '#eff6ff' : p.status === 'archived' ? '#f9fafb' : '#f0fdf4', color: p.status === 'in-progress' ? '#2563eb' : p.status === 'archived' ? '#9ca3af' : '#16a34a', border: '1px solid', borderColor: p.status === 'in-progress' ? '#bfdbfe' : p.status === 'archived' ? '#e5e7eb' : '#bbf7d0', borderRadius: 4, fontSize: 10, fontWeight: 600, padding: '2px 6px' }}>{p.status}</span>
-                </div>
+            <div key={p.id} style={{ background: '#fff', border: '1px solid rgba(0,0,0,.09)', borderRadius: 10, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', flexDirection: 'column' }}>
+              {/* Screenshot thumbnail */}
+              <div style={{ width: '100%', height: 140, background: '#f5f5f5', overflow: 'hidden', position: 'relative', flexShrink: 0 }}>
+                {p.screenshot ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.screenshot}
+                    alt={p.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={e => { (e.target as HTMLImageElement).parentElement!.style.background = '#f0f0f0'; (e.target as HTMLImageElement).style.display = 'none' }}
+                  />
+                ) : (
+                  <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d0d0d0" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span style={{ fontSize: 10, color: '#ccc' }}>No screenshot</span>
+                  </div>
+                )}
+                {/* Featured badge overlay */}
+                {p.featured && (
+                  <span style={{ position: 'absolute', top: 8, right: 8, background: '#c09030', color: '#fff', borderRadius: 4, fontSize: 9, fontWeight: 700, padding: '2px 7px', letterSpacing: '.06em' }}>★ FEATURED</span>
+                )}
               </div>
-              <p style={{ fontSize: 12, color: '#666', lineHeight: 1.5, margin: 0 }}>{String(p.description || '').slice(0, 100)}{String(p.description || '').length > 100 ? '…' : ''}</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-                {(Array.isArray(p.tags) ? p.tags : String(p.tags || '').split(',')).slice(0, 4).map((t: string) => (
-                  <span key={t} style={{ background: '#f5f5f5', color: '#555', borderRadius: 4, fontSize: 10, padding: '2px 6px', border: '1px solid rgba(0,0,0,.08)' }}>{String(t).trim()}</span>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
-                <button onClick={() => openEdit(p)} style={{ flex: 1, padding: '6px', fontSize: 11, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(0,0,0,.13)', borderRadius: 6, background: '#fff', color: '#444', fontFamily: 'inherit' }}>Edit</button>
-                <button onClick={() => toggleFeatured(p)} style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: '1px solid rgba(0,0,0,.13)', borderRadius: 6, background: '#fff', color: p.featured ? '#c09030' : '#999', fontFamily: 'inherit' }}>★</button>
-                <button onClick={() => del(p.id)} style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: '1px solid rgba(220,38,38,.2)', borderRadius: 6, background: '#fff', color: '#dc2626', fontFamily: 'inherit' }}>✕</button>
+
+              <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+                  <div>
+                    <div style={{ fontSize: 10, color: '#c09030', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 2 }}>{p.type}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{p.name}</div>
+                  </div>
+                  <span style={{ background: p.status === 'in-progress' ? '#eff6ff' : p.status === 'archived' ? '#f9fafb' : '#f0fdf4', color: p.status === 'in-progress' ? '#2563eb' : p.status === 'archived' ? '#9ca3af' : '#16a34a', border: '1px solid', borderColor: p.status === 'in-progress' ? '#bfdbfe' : p.status === 'archived' ? '#e5e7eb' : '#bbf7d0', borderRadius: 4, fontSize: 10, fontWeight: 600, padding: '2px 6px', flexShrink: 0 }}>{p.status}</span>
+                </div>
+                <p style={{ fontSize: 11.5, color: '#666', lineHeight: 1.5, margin: 0 }}>{String(p.description || '').slice(0, 90)}{String(p.description || '').length > 90 ? '…' : ''}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                  {(Array.isArray(p.tags) ? p.tags : String(p.tags || '').split(',')).slice(0, 4).map((t: string) => (
+                    <span key={t} style={{ background: '#f5f5f5', color: '#555', borderRadius: 4, fontSize: 10, padding: '2px 6px', border: '1px solid rgba(0,0,0,.08)' }}>{String(t).trim()}</span>
+                  ))}
+                </div>
+                <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
+                  <button onClick={() => openEdit(p)} style={{ flex: 1, padding: '6px', fontSize: 11, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(0,0,0,.13)', borderRadius: 6, background: '#fff', color: '#444', fontFamily: 'inherit' }}>Edit</button>
+                  <button
+                    onClick={() => toggleFeatured(p)}
+                    title={p.featured ? 'Remove from featured' : 'Mark as featured (shows in portfolio highlight section)'}
+                    style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: `1px solid ${p.featured ? '#f0d98a' : 'rgba(0,0,0,.13)'}`, borderRadius: 6, background: p.featured ? '#fff8e6' : '#fff', color: p.featured ? '#c09030' : '#999', fontFamily: 'inherit' }}
+                  >★</button>
+                  <button onClick={() => del(p.id)} style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: '1px solid rgba(220,38,38,.2)', borderRadius: 6, background: '#fff', color: '#dc2626', fontFamily: 'inherit' }}>✕</button>
+                </div>
               </div>
             </div>
           ))}
