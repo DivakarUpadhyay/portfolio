@@ -1,0 +1,31 @@
+{
+  "name": "Divakar R. Upadhyay",
+  "initials": "DRU",
+  "title": "Sr. Software Engineer",
+  "typedTitles": [
+    "Sr. Software Engineer",
+    "Full-Stack .NET Developer",
+    "Third-Party Integration Expert"
+  ],
+  "location": "New Taipei City, Taiwan",
+  "locationDetail": "Neihu / Jiannan MRT area",
+  "email": "divakarup1991@gmail.com",
+  "phone": "+886 987 291 325",
+  "lineId": "9372129286",
+  "availability": "Open to new opportunities",
+  "visa": "Taiwan Gold Card Holder",
+  "photo": "/candidatepic/DivakarUpadhyay.jpg",
+  "resumePdf": "/Divakar-SoftwareEngineer.pdf",
+  "github": "https://github.com/divakarupadhyay",
+  "linkedin": "https://linkedin.com/in/divakar-upadhyay",
+  "bio": [
+    "I'm a <strong>Sr. Software Engineer</strong> with <strong>8+ years</strong> in Microsoft .NET, specialising in scalable enterprise applications, third-party integrations, and full-stack web development. I've delivered production systems for clients from global corporates like <strong>Acer Group</strong> to health-tech startups and diamond industry platforms.",
+    "My stack spans <strong>C# .NET</strong>, <strong>AngularJS</strong>, <strong>MSSQL</strong>, microservices and RESTful APIs — with a track record of complex integrations including EDI logistics, payment gateways, and healthcare APIs."
+  ],
+  "stats": [
+    { "value": 8, "suffix": "+", "label": "Years Exp." },
+    { "value": 5, "suffix": "+", "label": "Companies" },
+    { "value": 20, "suffix": "+", "label": "Technologies" },
+    { "value": 15, "suffix": "+", "label": "Major Projects" }
+  ]
+}

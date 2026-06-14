@@ -1,0 +1,101 @@
+[
+  {
+    "id": "crypto-price-tracker",
+    "name": "Crypto Price Tracker",
+    "description": "Next.js dashboard pulling live prices from CoinGecko API. Server-side rendering, 60-second auto-refresh, portfolio watchlist saved to localStorage, and sparkline price charts.",
+    "tags": [
+      "Next.js",
+      "React 19",
+      "CoinGecko API",
+      "Recharts"
+    ],
+    "category": "web",
+    "github": "https://github.com/divakarupadhyay/crypto-tracker",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/crypto-price-tracker.svg",
+    "active": false
+  },
+  {
+    "id": "dotnet-clean-api",
+    "name": ".NET 8 Clean Architecture Starter",
+    "description": "Production-ready REST API template using .NET 8, Clean Architecture, Dapper, and MSSQL. Includes JWT authentication, role-based access control, global exception handling, and Swagger documentation with versioning.",
+    "tags": [
+      "C# .NET 8",
+      "Clean Architecture",
+      "Dapper",
+      "JWT",
+      "Swagger",
+      "MSSQL"
+    ],
+    "category": "api",
+    "github": "https://github.com/divakarupadhyay/dotnet-clean-api",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/dotnet-clean-api.svg",
+    "active": false
+  },
+  {
+    "id": "edi-parser-cli",
+    "name": "EDI X12 / EDIFACT Parser CLI",
+    "description": "A .NET console tool that parses EDI X12 and EDIFACT messages into strongly-typed C# objects and outputs JSON or CSV. Handles 810, 856, 997 transaction sets — built from real logistics integration experience.",
+    "tags": [
+      "C# .NET",
+      "EDI X12",
+      "EDIFACT",
+      "CLI",
+      "JSON",
+      "CSV"
+    ],
+    "category": "cli",
+    "github": "https://github.com/divakarupadhyay/edi-parser-cli",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/edi-parser-cli.svg",
+    "active": false
+  },
+  {
+    "id": "erc20-token-hardhat",
+    "name": "ERC-20 Token + Hardhat Boilerplate",
+    "description": "Solidity ERC-20 token with UUPS upgradeable proxy pattern, Hardhat test suite, and a Next.js + viem frontend to mint, transfer, and check balances. Deployed to Sepolia testnet.",
+    "tags": [
+      "Solidity",
+      "Hardhat",
+      "Next.js",
+      "viem",
+      "ERC-20",
+      "Sepolia"
+    ],
+    "category": "web3",
+    "github": "https://github.com/divakarupadhyay/erc20-hardhat-starter",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/erc20-token-hardhat.svg",
+    "active": false
+  },
+  {
+    "id": "health-api-integration",
+    "name": "Healthcare API Integration SDK",
+    "description": "A .NET SDK wrapping common healthcare REST APIs (appointment booking, prescription lookup, doctor search). Includes retry policies with Polly, mock server for testing, and full NuGet package setup.",
+    "tags": [
+      "C# .NET",
+      "Polly",
+      "REST API",
+      "NuGet",
+      "xUnit",
+      "Moq"
+    ],
+    "category": "api",
+    "github": "https://github.com/divakarupadhyay/healthcare-api-sdk",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/health-api-integration.svg",
+    "active": false
+  },
+  {
+    "id": "moneygain-mqdk9dt8",
+    "name": "MoneyGain",
+    "description": "This project is related to money and how to make money",
+    "tags": [],
+    "category": "web",
+    "github": "",
+    "demo": "",
+    "screenshot": "https://rvyqwprkfzusjqblggvh.supabase.co/storage/v1/object/public/screenshots/budha.jpg",
+    "active": true
+  }
+]

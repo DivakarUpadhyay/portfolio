@@ -1,0 +1,98 @@
+[
+  {
+    "period": "Mar 2025 — Present",
+    "role": "Senior Software Engineer",
+    "company": "Ample Group Global",
+    "companyUrl": "https://amplegroupglobal.com",
+    "client": "AMG Web3 Ecosystem",
+    "badge": "Current",
+    "highlights": [
+      "Architecting and developing a full-cycle tokenised real-world asset investment platform (FOUNDATION & FRONTIER product lines)",
+      "Built .NET 8 Clean Architecture backend with Dapper ORM and MSSQL — designed for scalability and compliance",
+      "Developed investor portal (Next.js 16 + React 19 + Privy embedded wallets) and admin layer (Next.js + MUI v7)",
+      "Integrated Solidity smart contracts (UUPS upgradeable pattern) with on-chain settlement and compliance gates",
+      "Implemented KYC pipeline, RBAC system, NAV management, fee oracle, and multi-product lifecycle workflows"
+    ],
+    "tech": ["C# .NET 8", "Next.js 16", "React 19", "Solidity", "MSSQL", "Dapper", "Clean Architecture", "Privy", "viem", "Azure DevOps", "Hardhat"]
+  },
+  {
+    "period": "Mar 2022 — Feb 2025",
+    "role": "Senior Software Engineer",
+    "company": "Skywind Co. Ltd",
+    "companyUrl": "https://skywind.com.tw/",
+    "client": "Acer Group (on-site)",
+    "badge": "Enterprise",
+    "highlights": [
+      "Employed by Skywind Co. Ltd (payroll company), deployed on-site at Acer Group's service operations in Taiwan",
+      "Operated and maintained Acer's in-house contact service system for service centres and partner networks across Taiwan",
+      "Led complex third-party integrations: TNT/FedEx EDI (multiple document formats), DHL Payment Gateway, i18n localisation",
+      "Built end-to-end SSRS reporting suite and automated data pipelines with SSIS",
+      "Participated in daily scrums, requirement analysis with PMs, and oversaw IT & UAT release cycles"
+    ],
+    "tech": ["C#", "VB.Net", "AngularJS", "C# MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "MSSQL", "SSRS", "SSIS", "Azure DevOps"]
+  },
+  {
+    "period": "Apr 2021 — Nov 2021",
+    "role": "Senior Software Engineer",
+    "company": "HealthAssure Pvt Ltd",
+    "companyUrl": "https://www.healthassure.in/",
+    "client": "Corporate & Consumer Health Platform",
+    "badge": "HealthTech",
+    "highlights": [
+      "Led a team of 5+ developers for full-cycle delivery of the HealthAssure corporate health platform",
+      "Integrated Apollo Pharmacy and Doc24x7 third-party health service APIs end-to-end",
+      "Designed and built mobile-ready REST APIs supporting iOS & Android apps",
+      "Managed code releases and conducted knowledge transfer sessions for incoming team leads",
+      "Tracked developer velocity and reported to management on sprint delivery"
+    ],
+    "tech": ["C#", ".NET Core MVC", "C# MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "MSSQL", "Postman"]
+  },
+  {
+    "period": "Sep 2018 — Mar 2021",
+    "role": "Senior Software Engineer",
+    "company": "Tecogis Software Solution",
+    "companyUrl": "https://www.tecogis.com/",
+    "client": "Diamond Industry & Event Management",
+    "badge": "Multi-domain",
+    "highlights": [
+      "Developed software for diamond retailers (Ketan Brothers, M.B. Mehta) and global labs (IGI, GIA)",
+      "Built DefExpo & ITME 2022 event management systems with official DefExpo API exhibitor registration",
+      "Implemented e-signature and camera library for IGI's grading page",
+      "Created global data sync executables for the IGI server; Crystal Reports via generic method loader",
+      "Maintained MSSQL databases with optimised stored procedures; resolved end-user production issues"
+    ],
+    "tech": ["VB.Net", "C# MVC", ".NET Core MVC", "Web Forms", "REST API", "SOAP API", "Entity Framework", "LINQ", "MSSQL", "Crystal Reports", "Rapaport API"]
+  },
+  {
+    "period": "Sep 2017 — Sep 2018",
+    "role": "Junior Software Engineer",
+    "company": "Fulcro world (IBS) Digital Solution",
+    "companyUrl": "https://www.ibsfulcro.com/",
+    "client": "Bajaj FinServ · Bajaj Electricals · Tata DoCoMo",
+    "badge": "FinTech",
+    "highlights": [
+      "Built Bajaj FinServ corporate web platform using Umbraco CMS, ASP.NET MVC and C#",
+      "Implemented complete gift card service for Bajaj Electricals: code generation, email delivery, redemption, payment",
+      "Integrated Salesforce APIs for UTM analytics and lead tracking",
+      "Migrated deployments from FTP to AWS Elastic Beanstalk, improving CI efficiency",
+      "Contributed to Tata DoCoMo mobile app using Vue.js"
+    ],
+    "tech": ["C# MVC", "ASP.NET MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "XSLT", "Vue.js", "Umbraco CMS", "MSSQL", "AWS Elastic Beanstalk", "Salesforce API"]
+  },
+  {
+    "period": "Feb 2015 — May 2017",
+    "role": "Junior Software Engineer",
+    "company": "Dotcom Service India",
+    "companyUrl": "https://www.worldindia.com/",
+    "client": "Film City · Bureau Veritas · Bajaj Banani Group",
+    "badge": "Early Career",
+    "highlights": [
+      "Designed and built web apps: time-tracking system, Bollywood Film City project, Bajaj Banani Group portals",
+      "Set up full monolithic architecture (data access → business → presentation) from scratch",
+      "Integrated multiple payment gateways: PayU Money, Stripe, HDFC, Atom",
+      "Conducted post-release manual testing; authored test scenarios in Excel from business requirements",
+      "Managed server deployments via FileZilla"
+    ],
+    "tech": ["Web Forms", "ADO.Net", "C# MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "MSSQL", "PayU Money", "Stripe", "HDFC", "Atom"]
+  }
+]

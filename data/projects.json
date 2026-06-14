@@ -1,0 +1,112 @@
+[
+  {
+    "id": "amg-web3",
+    "type": "Web3 · Blockchain",
+    "name": "AMG Web3 Ecosystem",
+    "description": "Full-cycle investment platform for tokenised real-world assets. Investor portal, admin layer, .NET 8 Clean Architecture backend, and Solidity smart contracts. Supports FOUNDATION & FRONTIER product lines with KYC gates, on-chain settlements, and compliance automation.",
+    "tags": ["C# .NET 8", "Next.js 16", "Solidity", "MSSQL", "Clean Architecture", "Dapper"],
+    "category": "web3",
+    "github": "",
+    "demo": "https://www.amplegroupglobal.com/",
+    "screenshot": "/screenshots/amg-web3.png",
+    "featured": true,
+    "status": "in-progress"
+  },
+  {
+    "id": "bearh",
+    "type": "Web3 · Platform",
+    "name": "imBearth Platform",
+    "description": "Web3 platform built on Next.js with modern blockchain integrations. Developed investor-facing features, smart contract interactions, and responsive UI for the imBearth ecosystem.",
+    "tags": ["Next.js", "Solidity", "Web3", "MSSQL", "REST API"],
+    "category": "web3",
+    "github": "",
+    "demo": "https://www.imbearth.com",
+    "screenshot": "/screenshots/bearh.png",
+    "featured": false,
+    "status": "in-progress"
+  },
+  {
+    "id": "acer-css",
+    "type": "Enterprise · Logistics",
+    "name": "Acer Contact Service System",
+    "description": "In-house service management platform for Acer's laptop repair network. TNT/FedEx EDI integration with multiple document formats, DHL payment gateway, i18n localisation, SSRS reports, and SSIS data pipelines.",
+    "tags": ["C#", "AngularJS", "MSSQL", "SSRS", "SSIS", "EDI", "DHL API"],
+    "category": "enterprise",
+    "github": "",
+    "demo": "https://www.acer.com/",
+    "screenshot": "/screenshots/acer-css.png",
+    "featured": false
+  },
+  {
+    "id": "healthassure",
+    "type": "HealthTech · Platform",
+    "name": "HealthAssure Product System",
+    "description": "Corporate health benefits platform with Apollo Pharmacy and Doc24x7 integrations. Mobile-ready REST APIs powering iOS and Android apps for enterprise clients and general consumers.",
+    "tags": [".NET Core MVC", "REST API", "MSSQL", "Apollo Pharmacy", "Doc24x7"],
+    "category": "healthtech",
+    "github": "",
+    "demo": "https://www.healthassure.in/",
+    "screenshot": "/screenshots/healthassure.png",
+    "featured": false
+  },
+  {
+    "id": "igi-lab",
+    "type": "Diamond Industry · Lab",
+    "name": "IGI Laboratory System",
+    "description": "Diamond grading portal for IGI with e-signature, camera library, global data sync executables, Crystal Reports with generic loader, Rapaport pricing API, and bar-graph property visualisation.",
+    "tags": ["C# MVC", "VB.Net", "Crystal Reports", "Rapaport API", "MSSQL"],
+    "category": "enterprise",
+    "github": "",
+    "demo": "https://www.igi.org/",
+    "screenshot": "/screenshots/igi-lab.png",
+    "featured": false
+  },
+  {
+    "id": "bajaj-giftcard",
+    "type": "FinTech · E-commerce",
+    "name": "Bajaj Electricals Gift Card",
+    "description": "End-to-end gift card service: code generation, email delivery, redemption, and payment management. Salesforce integration for UTM tracking and analytics.",
+    "tags": ["C# MVC", "Umbraco CMS", "Salesforce API", "AWS Beanstalk"],
+    "category": "fintech",
+    "github": "",
+    "demo": "https://www.bajajelectricals.com/",
+    "screenshot": "/screenshots/bajaj-giftcard.png",
+    "featured": false
+  },
+  {
+    "id": "diamond-inventory",
+    "type": "Diamond Industry · Inventory",
+    "name": "Diamond Inventory System",
+    "description": "Comprehensive diamond inventory management system for retailers and labs. Features stock tracking, grading records, valuation reports, Rapaport pricing API integration, and Crystal Reports generation.",
+    "tags": ["C# MVC", "VB.Net", "MSSQL", "Crystal Reports", "Web Forms"],
+    "category": "enterprise",
+    "github": "",
+    "demo": "https://www.ketanbrothers.com/",
+    "screenshot": "/screenshots/diamond-inv-1.png",
+    "featured": false
+  },
+  {
+    "id": "dynaroof",
+    "type": "Construction · Web",
+    "name": "Dynaroof",
+    "description": "Corporate web platform for Dynaroof, a construction and roofing solutions company. Built product catalogue, project showcase, and inquiry management modules.",
+    "tags": ["C# MVC", "Web Forms", "MSSQL", "ADO.Net", "Bootstrap"],
+    "category": "enterprise",
+    "github": "",
+    "demo": "https://dynaroof.com/dynatbs/",
+    "screenshot": "/screenshots/dynaroof.png",
+    "featured": false
+  },
+  {
+    "id": "bajaj-finserv",
+    "type": "FinTech · Web",
+    "name": "Bajaj FinServ Web Platform",
+    "description": "Corporate web application for one of India's largest financial services companies. Umbraco CMS-based, with Salesforce API integration for lead tracking, UTM analytics, and data pipelines.",
+    "tags": ["Umbraco CMS", "ASP.NET MVC", "C#", "Salesforce API", "MSSQL"],
+    "category": "fintech",
+    "github": "",
+    "demo": "https://www.bajajfinserv.in/",
+    "screenshot": "/screenshots/bajaj-finserv.png",
+    "featured": false
+  }
+]

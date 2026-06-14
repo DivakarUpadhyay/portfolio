@@ -1,0 +1,62 @@
+[
+  {
+    "group": "Backend & Core",
+    "tags": [
+      { "name": "C#", "primary": true },
+      { "name": ".NET Framework", "primary": true },
+      { "name": ".NET Core", "primary": true },
+      { "name": "VB.Net", "primary": true },
+      { "name": "REST API", "primary": false },
+      { "name": "SOAP API", "primary": false },
+      { "name": "Entity Framework", "primary": false },
+      { "name": "LINQ", "primary": false },
+      { "name": "Dapper", "primary": false },
+      { "name": "Clean Architecture", "primary": false }
+    ]
+  },
+  {
+    "group": "Frontend & Web",
+    "tags": [
+      { "name": "AngularJS", "primary": true },
+      { "name": "jQuery", "primary": true },
+      { "name": "AJAX", "primary": false },
+      { "name": "Vue.js", "primary": false },
+      { "name": "C# MVC", "primary": false },
+      { "name": "Web Forms", "primary": false },
+      { "name": "XSLT", "primary": false },
+      { "name": "Umbraco CMS", "primary": false }
+    ]
+  },
+  {
+    "group": "Database & Reporting",
+    "tags": [
+      { "name": "MSSQL", "primary": true },
+      { "name": "Stored Procedures", "primary": true },
+      { "name": "SSRS", "primary": false },
+      { "name": "SSIS", "primary": false },
+      { "name": "Crystal Reports", "primary": false },
+      { "name": "ADO.Net", "primary": false }
+    ]
+  },
+  {
+    "group": "Web3 & Modern Frontend",
+    "tags": [
+      { "name": "Next.js", "primary": true },
+      { "name": "Solidity", "primary": true },
+      { "name": "Hardhat", "primary": false },
+      { "name": "viem", "primary": false },
+      { "name": "Privy", "primary": false },
+      { "name": "Wagmi", "primary": false },
+      { "name": "Sumsub", "primary": false }
+    ]
+  },
+  {
+    "group": "Azure & DevOps",
+    "tags": [
+      { "name": "Azure DevOps", "primary": true },
+      { "name": "GitHub Actions", "primary": true },
+      { "name": "Azure Web App", "primary": false },
+      { "name": "Azure Database", "primary": false }
+    ]
+  }
+]

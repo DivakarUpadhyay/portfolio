@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4338ca;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="80" y="260" width="1040" height="1" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="270" font-family="Georgia, serif" font-size="62" font-weight="700"
+    fill="white" text-anchor="middle" dominant-baseline="middle"
+    style="letter-spacing:-1px">AMG Web3 Ecosystem</text>
+  <text x="600" y="350" font-family="monospace" font-size="20" font-weight="400"
+    fill="rgba(255,255,255,0.6)" text-anchor="middle" dominant-baseline="middle"
+    style="letter-spacing:4px;text-transform:uppercase">Web3 · Blockchain</text>
+</svg>
