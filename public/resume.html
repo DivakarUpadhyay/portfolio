@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Divakar R. Upadhyay — Senior Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:       #090a0b;
+    --surface:  #111214;
+    --border:   rgba(255,255,255,0.07);
+    --gold:     #c09030;
+    --gold-dim: rgba(192,144,48,0.18);
+    --gold-bdr: rgba(192,144,48,0.35);
+    --white:    #f0f0f0;
+    --text:     #d0d0d0;
+    --muted:    #888;
+    --dim:      #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    font-size: 11.5px;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 13mm 15mm 11mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--gold);
+    margin-bottom: 15px;
+  }
+
+  .h-left { }
+
+  .h-name {
+    font-size: 29px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.6px;
+    line-height: 1.05;
+  }
+
+  .h-name em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .h-title {
+    margin-top: 5px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+  }
+
+  .h-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 7px;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-bdr);
+    color: var(--gold);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .h-right {
+    text-align: right;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  .h-right a { color: var(--muted); text-decoration: none; }
+
+  /* ── SECTION ── */
+  .sec { margin-bottom: 14px; }
+
+  .sec-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* ── SUMMARY ── */
+  .summary {
+    font-size: 11.5px;
+    color: #bbb;
+    line-height: 1.65;
+  }
+
+  .summary strong { color: var(--white); font-weight: 600; }
+
+  /* ── SKILLS ── */
+  .skills-rows { display: flex; flex-direction: column; gap: 5px; }
+
+  .sk-row {
+    display: flex;
+    gap: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .sk-cat {
+    min-width: 118px;
+    color: var(--muted);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .sk-vals { color: var(--text); }
+
+  /* ── EXPERIENCE ── */
+  .exp { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .exp:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .exp-role {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .exp-period {
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Consolas', monospace;
+  }
+
+  .exp-co {
+    font-size: 11px;
+    color: #c8a84a;
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .exp-loc {
+    font-size: 10px;
+    color: var(--dim);
+    margin-bottom: 6px;
+    margin-top: 1px;
+  }
+
+  ul.exp-pts {
+    list-style: none;
+    margin-bottom: 6px;
+  }
+
+  ul.exp-pts li {
+    font-size: 11px;
+    color: #b8b8b8;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2.5px;
+    line-height: 1.5;
+  }
+
+  ul.exp-pts li::before {
+    content: '›';
+    position: absolute;
+    left: 3px;
+    color: var(--gold);
+    font-size: 13px;
+    line-height: 1;
+    top: 1px;
+  }
+
+  .exp-stack {
+    font-size: 10px;
+    color: var(--dim);
+  }
+
+  .exp-stack b { color: #666; font-weight: 500; }
+
+  /* ── PROJECTS ── */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 18px;
+  }
+
+  .proj-name {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #e0e0e0;
+  }
+
+  .proj-desc {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.45;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .edu-deg  { font-size: 12.5px; font-weight: 600; color: #fff; }
+  .edu-uni  { font-size: 11px; color: #c8a84a; margin-top: 2px; }
+  .edu-yr   { font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  .cv-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    font-size: 9.5px;
+    color: var(--dim);
+  }
+
+  /* ── PAGE BREAK ── */
+  .page-break { break-before: page; }
+
+  @media print {
+    body { background: #090a0b !important; }
+    .page { padding: 13mm 15mm 11mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ PAGE 1 ═══ -->
+<div class="page">
+
+  <header>
+    <div class="h-left">
+      <div class="h-name">Divakar <em>R. Upadhyay</em></div>
+      <div class="h-title">Senior Software Engineer · Full-Stack .NET · Web3</div>
+      <div class="h-badge">🇹🇼 Taiwan Gold Card Holder &nbsp;·&nbsp; Open to new opportunities</div>
+    </div>
+    <div class="h-right">
+      divakarup1991@gmail.com<br />
+      linkedin.com/in/divakar-upadhyay<br />
+      github.com/divakarupadhyay<br />
+      New Taipei City, Taiwan
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="sec">
+    <div class="sec-title">Profile</div>
+    <p class="summary">
+      <strong>8+ years</strong> building production enterprise software on the Microsoft .NET stack — from MSSQL-heavy backend services to AngularJS/Next.js frontends.
+      Track record spans <strong>FinTech</strong>, <strong>HealthTech</strong>, <strong>Logistics</strong>, <strong>Diamond Industry</strong>, and <strong>Blockchain/Web3</strong> domains.
+      Strong in third-party integrations (EDI logistics, payment gateways, healthcare APIs) and currently building a
+      <strong>tokenised real-world asset platform</strong> end-to-end — backend, investor portal, smart contracts, and compliance gates.
+      Taiwan Gold Card holder, based in New Taipei City, fluent in English, available immediately.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sec">
+    <div class="sec-title">Technical Skills</div>
+    <div class="skills-rows">
+      <div class="sk-row">
+        <span class="sk-cat">Backend</span>
+        <span class="sk-vals">C#, .NET 8, .NET Core, .NET Framework, VB.Net, Clean Architecture, Dapper ORM, Entity Framework, LINQ, REST API, SOAP API</span>
+      </div>
+      <div class="sk-row">
+        <span class="sk-cat">Frontend</span>
+        <span class="sk-vals">AngularJS, Next.js 16, React 19, MUI v7, jQuery, Vue.js, C# MVC, ASP.NET MVC, Web Forms, XSLT, Umbraco CMS</span>
+      </div>
+      <div class="sk-row">
+        <span class="sk-cat">Database &amp; Reporting</span>
+        <span class="sk-vals">MSSQL, Stored Procedures, SSRS, SSIS, Crystal Reports, ADO.Net</span>
+      </div>
+      <div class="sk-row">
+        <span class="sk-cat">Blockchain / Web3</span>
+        <span class="sk-vals">Solidity, Hardhat, viem, Privy (embedded wallets), Wagmi, ERC-20, UUPS Upgradeable Proxy, Sumsub KYC</span>
+      </div>
+      <div class="sk-row">
+        <span class="sk-cat">DevOps / Cloud</span>
+        <span class="sk-vals">Azure DevOps, GitHub Actions, Azure Web App, Azure Database, Docker, AWS Elastic Beanstalk</span>
+      </div>
+      <div class="sk-row">
+        <span class="sk-cat">Integrations</span>
+        <span class="sk-vals">FedEx/TNT EDI, DHL Payment Gateway, Salesforce API, Apollo Pharmacy, Doc24x7, Rapaport, Sumsub, PayU Money, Stripe, HDFC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="sec">
+    <div class="sec-title">Work Experience</div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Senior Software Engineer</span>
+        <span class="exp-period">Mar 2025 — Present</span>
+      </div>
+      <div class="exp-co">Ample Group Global — AMG Web3 Ecosystem</div>
+      <div class="exp-loc">New Taipei City, Taiwan</div>
+      <ul class="exp-pts">
+        <li>Building a full-cycle tokenised real-world asset investment platform from the ground up — FOUNDATION (hedge-fund model) and FRONTIER (SPV/PE) product lines</li>
+        <li>.NET 8 Clean Architecture backend with Dapper ORM and MSSQL; 126+ stored procedures, Repository pattern, structured service layer</li>
+        <li>Investor portal in Next.js 16 + React 19 with Privy embedded wallets; admin panel in Next.js + MUI v7 with full RBAC</li>
+        <li>Solidity smart contracts with UUPS upgradeable proxy — vault, NAV oracle, fee oracle, whitelist registry, KYC badge (soulbound NFT)</li>
+        <li>KYC pipeline via Sumsub, 48-hour withdrawal queue, on-chain compliance gates, append-only audit triggers in MSSQL</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> C# .NET 8 · Next.js 16 · React 19 · Solidity · MSSQL · Dapper · Privy · viem · Hardhat · Azure DevOps</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Senior Software Engineer</span>
+        <span class="exp-period">Mar 2022 — Feb 2025</span>
+      </div>
+      <div class="exp-co">Skywind Co. Ltd — deployed on-site at Acer Group Taiwan</div>
+      <div class="exp-loc">New Taipei City, Taiwan</div>
+      <ul class="exp-pts">
+        <li>Maintained and extended Acer's in-house Contact Service System used by repair centres and partner networks across Taiwan</li>
+        <li>TNT/FedEx EDI integration handling multiple document formats; DHL Payment Gateway; full i18n localisation rollout</li>
+        <li>Built an end-to-end SSRS reporting suite (20+ reports) and automated data pipelines using SSIS</li>
+        <li>Daily scrums with Acer PMs, handled requirement analysis, coordinated IT and UAT release cycles</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> C# · VB.Net · AngularJS · C# MVC · REST/SOAP API · Entity Framework · MSSQL · SSRS · SSIS · Azure DevOps</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Senior Software Engineer</span>
+        <span class="exp-period">Apr 2021 — Nov 2021</span>
+      </div>
+      <div class="exp-co">HealthAssure Pvt Ltd — Corporate &amp; Consumer Health Platform</div>
+      <div class="exp-loc">Mumbai, India</div>
+      <ul class="exp-pts">
+        <li>Led a team of 5 developers through full-cycle delivery of the HealthAssure corporate health platform</li>
+        <li>End-to-end integration of Apollo Pharmacy and Doc24x7 health service APIs</li>
+        <li>Built mobile-ready REST APIs consumed by the iOS and Android apps; managed all deployment releases</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> C# · .NET Core MVC · REST/SOAP API · Entity Framework · MSSQL · Postman</div>
+    </div>
+
+  </section>
+
+  <div class="cv-footer">
+    <span>portfolio-divakarupadhyay.vercel.app</span>
+    <span>divakarup1991@gmail.com</span>
+    <span>Page 1 of 2</span>
+  </div>
+
+</div>
+
+<!-- ═══ PAGE 2 ═══ -->
+<div class="page page-break">
+
+  <section class="sec">
+    <div class="sec-title">Work Experience (continued)</div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Senior Software Engineer</span>
+        <span class="exp-period">Sep 2018 — Mar 2021</span>
+      </div>
+      <div class="exp-co">Tecogis Software Solution — Diamond Industry &amp; Event Management</div>
+      <div class="exp-loc">Mumbai, India</div>
+      <ul class="exp-pts">
+        <li>Built inventory and grading software for diamond retailers (Ketan Brothers, M.B. Mehta) and global certification labs (IGI, GIA)</li>
+        <li>DefExpo 2020 and ITME 2022 event management systems with official DefExpo API for exhibitor registration</li>
+        <li>IGI grading portal — e-signature module, camera library, Rapaport pricing API, global data sync service, Crystal Reports via generic loader</li>
+        <li>Owned MSSQL database layer: schema design, stored procedure optimisation, end-user production support</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> VB.Net · C# MVC · .NET Core MVC · REST/SOAP API · Entity Framework · MSSQL · Crystal Reports · Rapaport API</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Junior Software Engineer</span>
+        <span class="exp-period">Sep 2017 — Sep 2018</span>
+      </div>
+      <div class="exp-co">Fulcro world (IBS) Digital Solution — FinTech / FMCG</div>
+      <div class="exp-loc">Mumbai, India &nbsp;·&nbsp; Clients: Bajaj FinServ, Bajaj Electricals, Tata DoCoMo</div>
+      <ul class="exp-pts">
+        <li>Bajaj FinServ corporate web platform — Umbraco CMS, ASP.NET MVC, Salesforce API for UTM analytics and lead tracking</li>
+        <li>Bajaj Electricals gift card service — code generation, email delivery, online redemption, and payment end-to-end</li>
+        <li>Migrated deployments from FTP to AWS Elastic Beanstalk; contributed to Tata DoCoMo mobile app in Vue.js</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> C# MVC · ASP.NET MVC · REST/SOAP API · Umbraco CMS · Entity Framework · MSSQL · AWS Elastic Beanstalk · Salesforce API</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row1">
+        <span class="exp-role">Junior Software Engineer</span>
+        <span class="exp-period">Feb 2015 — May 2017</span>
+      </div>
+      <div class="exp-co">Dotcom Service India — Multi-domain</div>
+      <div class="exp-loc">Mumbai, India &nbsp;·&nbsp; Clients: Film City, Bureau Veritas, Bajaj Banani Group</div>
+      <ul class="exp-pts">
+        <li>Built web applications from scratch: Bollywood Film City project, Bajaj Banani Group portals, time-tracking system</li>
+        <li>Set up full monolithic architecture — data access layer, business logic layer, presentation layer — from first commit to production</li>
+        <li>Integrated PayU Money, Stripe, HDFC, and Atom payment gateways; managed server deployments via FileZilla</li>
+      </ul>
+      <div class="exp-stack"><b>Stack:</b> Web Forms · ADO.Net · C# MVC · REST/SOAP API · Entity Framework · MSSQL · PayU Money · Stripe · HDFC</div>
+    </div>
+
+  </section>
+
+  <!-- KEY PROJECTS -->
+  <section class="sec">
+    <div class="sec-title">Selected Projects</div>
+    <div class="proj-grid">
+      <div>
+        <div class="proj-name">AMG Web3 Ecosystem</div>
+        <div class="proj-desc">Full-cycle tokenised RWA platform — FOUNDATION &amp; FRONTIER products, KYC compliance gates, Solidity vaults, on-chain settlement, investor + admin portals</div>
+      </div>
+      <div>
+        <div class="proj-name">Acer Contact Service System</div>
+        <div class="proj-desc">Service centre management for Acer Taiwan — FedEx/TNT EDI, DHL payment gateway, SSRS reporting suite, SSIS pipelines, i18n localisation</div>
+      </div>
+      <div>
+        <div class="proj-name">HealthAssure Corporate Platform</div>
+        <div class="proj-desc">Corporate health benefits platform with Apollo Pharmacy &amp; Doc24x7 integrations; REST APIs powering iOS and Android mobile apps</div>
+      </div>
+      <div>
+        <div class="proj-name">IGI Laboratory System</div>
+        <div class="proj-desc">Diamond grading portal — e-signature, camera library, Rapaport API, global data sync executable, Crystal Reports generic loader</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="sec">
+    <div class="sec-title">Education</div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-deg">MSc Computer Science</div>
+        <div class="edu-uni">University of Mumbai, India</div>
+      </div>
+      <div class="edu-yr">2015</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS / ADDITIONAL -->
+  <section class="sec">
+    <div class="sec-title">Additional</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-size:11px; color:#aaa;">
+      <div><span style="color:var(--muted)">Work Authorization:</span> &nbsp;Taiwan Employment Gold Card (Tech category)</div>
+      <div><span style="color:var(--muted)">Languages:</span> &nbsp;English (fluent), Hindi (native), Marathi (native)</div>
+      <div><span style="color:var(--muted)">Portfolio:</span> &nbsp;portfolio-divakarupadhyay.vercel.app</div>
+      <div><span style="color:var(--muted)">Location:</span> &nbsp;New Taipei City — Neihu / Jiannan MRT area</div>
+    </div>
+  </section>
+
+  <div class="cv-footer">
+    <span>portfolio-divakarupadhyay.vercel.app</span>
+    <span>divakarup1991@gmail.com</span>
+    <span>Page 2 of 2</span>
+  </div>
+
+</div>
+
+</body>
+</html>
