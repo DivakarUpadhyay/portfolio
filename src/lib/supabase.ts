@@ -26,7 +26,7 @@ export async function sbGetDemoProjects<T>(fallback: T): Promise<T> {
     )
     if (!res.ok) return fallback
     const rows = await res.json() as T[]
-    return (rows.length > 0 ? rows : fallback) as T
+    return rows as unknown as T
   } catch {
     return fallback
   }
