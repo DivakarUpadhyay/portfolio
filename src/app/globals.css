@@ -1354,10 +1354,10 @@ a.pj-shot-link { cursor: pointer; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   POOL LIGHT THEME — no nav/footer, light gray + black
+   POOL DARK THEME — matches portfolio dark aesthetic
    ═══════════════════════════════════════════════════════ */
 .pool-light {
-  background: #f5f6f7;
+  background: #0a0a0b;
 }
 
 /* ── Pool listing layout ── */
@@ -1375,24 +1375,24 @@ a.pj-shot-link { cursor: pointer; }
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(0,0,0,.09);
+  border-bottom: 2px solid rgba(255,255,255,.09);
 }
 .pool-page-title-row { flex: 1; }
 .pool-page-title {
   font-size: 22px;
   font-weight: 700;
-  color: #111;
+  color: #f0f0f0;
   letter-spacing: -.02em;
   line-height: 1.2;
   margin-bottom: 4px;
 }
 .pool-page-sub {
   font-size: 13px;
-  color: #888;
+  color: #666;
   line-height: 1.5;
 }
 .pool-light .pool-empty {
-  color: #666;
+  color: #888;
   font-size: 15px;
   padding: 48px 0;
   text-align: center;
@@ -1409,7 +1409,7 @@ a.pj-shot-link { cursor: pointer; }
 }
 .pool-table-meta {
   font-size: 12px;
-  color: #999;
+  color: #666;
   white-space: nowrap;
 }
 .pool-search-wrap {
@@ -1429,14 +1429,14 @@ a.pj-shot-link { cursor: pointer; }
   width: 100%;
   padding: 7px 32px 7px 32px;
   font-size: 13px;
-  color: #222;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.15);
+  color: #ccc;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 7px;
   outline: none;
   transition: border-color .15s;
 }
-.pool-search::placeholder { color: #aaa; }
+.pool-search::placeholder { color: #555; }
 .pool-search:focus { border-color: #c09030; }
 .pool-search-clear {
   position: absolute;
@@ -1444,47 +1444,47 @@ a.pj-shot-link { cursor: pointer; }
   background: none;
   border: none;
   font-size: 16px;
-  color: #aaa;
+  color: #555;
   cursor: pointer;
   line-height: 1;
   padding: 0;
 }
-.pool-search-clear:hover { color: #444; }
+.pool-search-clear:hover { color: #ccc; }
 
 /* ── Table ── */
 .pool-light .pool-th {
-  color: #888;
-  border-bottom-color: rgba(0,0,0,.12);
+  color: #666;
+  border-bottom-color: rgba(255,255,255,.12);
   padding: 8px 12px 10px;
 }
 .pool-light .pool-row {
-  border-bottom-color: rgba(0,0,0,.07);
+  border-bottom-color: rgba(255,255,255,.07);
 }
 .pool-light .pool-row:hover {
-  background: rgba(0,0,0,.025);
+  background: rgba(255,255,255,.04);
 }
 .pool-light .pool-td { padding: 14px 12px; }
 .pool-light .pool-td-num {
-  color: #bbb;
+  color: #555;
   padding-top: 16px;
   font-size: 11px;
 }
 .pool-light .pool-td-date {
-  color: #555;
+  color: #888;
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
   padding-top: 16px;
 }
 .pool-light .pool-topic-link {
-  color: #111;
+  color: #e8e8e8;
   font-size: 15px;
   margin-bottom: 4px;
 }
 .pool-light .pool-topic-link:hover { color: #c09030; }
 .pool-light .pool-excerpt {
   font-size: 12.5px;
-  color: #777;
+  color: #888;
   line-height: 1.5;
   margin: 0;
 }
@@ -1495,7 +1495,7 @@ a.pj-shot-link { cursor: pointer; }
 .pool-no-results {
   padding: 40px 16px;
   text-align: center;
-  color: #999;
+  color: #666;
   font-size: 14px;
 }
 
@@ -1507,15 +1507,15 @@ a.pj-shot-link { cursor: pointer; }
   gap: 6px;
   margin-top: 28px;
   padding-top: 20px;
-  border-top: 1px solid rgba(0,0,0,.07);
+  border-top: 1px solid rgba(255,255,255,.07);
 }
 .pool-page-btn {
   padding: 6px 14px;
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(0,0,0,.15);
-  background: #fff;
-  color: #444;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: #ccc;
   border-radius: 6px;
   cursor: pointer;
   transition: all .15s;
@@ -1528,9 +1528,9 @@ a.pj-shot-link { cursor: pointer; }
   height: 32px;
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(0,0,0,.12);
-  background: #fff;
-  color: #444;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: #ccc;
   border-radius: 6px;
   cursor: pointer;
   transition: all .15s;
@@ -1557,24 +1557,24 @@ a.pj-shot-link { cursor: pointer; }
 .pool-light .topic-detail-date {
   font-size: 14px;
   font-weight: 500;
-  color: #444;
+  color: #888;
   font-family: inherit;
   letter-spacing: 0;
 }
 .pool-light .topic-detail-title {
-  color: #111;
+  color: #f0f0f0;
   font-size: clamp(22px, 3.5vw, 36px);
   margin-bottom: 24px;
 }
 .pool-light .topic-detail-foot {
-  border-top-color: rgba(0,0,0,.1);
+  border-top-color: rgba(255,255,255,.1);
   margin-top: 36px;
   padding-top: 18px;
 }
 
 /* ── Markdown body ── */
 .pool-light .markdown-body {
-  color: #2a2a2a;
+  color: #d4d4d4;
   font-size: 15.5px;
   line-height: 1.75;
 }
@@ -1589,44 +1589,44 @@ a.pj-shot-link { cursor: pointer; }
 .pool-light .markdown-body h4,
 .pool-light .markdown-body h5,
 .pool-light .markdown-body h6 {
-  color: #111;
+  color: #f0f0f0;
   margin: 1.5em 0 .5em;
 }
 .pool-light .markdown-body h1 {
   font-size: 1.7em;
-  border-bottom-color: rgba(0,0,0,.1);
+  border-bottom-color: rgba(255,255,255,.1);
   padding-bottom: .3em;
 }
 .pool-light .markdown-body h2 { font-size: 1.35em; }
 .pool-light .markdown-body h3 { font-size: 1.15em; }
-.pool-light .markdown-body h4 { color: #333; font-size: 1em; }
-.pool-light .markdown-body strong { color: #111; }
-.pool-light .markdown-body em { color: #222; }
+.pool-light .markdown-body h4 { color: #ccc; font-size: 1em; }
+.pool-light .markdown-body strong { color: #f0f0f0; }
+.pool-light .markdown-body em { color: #d4d4d4; }
 .pool-light .markdown-body a { color: #c09030; }
 .pool-light .markdown-body code {
-  background: #e8e9eb;
-  border-color: rgba(0,0,0,.1);
-  color: #b07020;
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.1);
+  color: #c09030;
 }
 .pool-light .markdown-body pre {
   background: #1e1e1e;
-  border-color: rgba(0,0,0,.15);
+  border-color: rgba(255,255,255,.1);
   margin: 1.2em 0;
 }
 .pool-light .markdown-body blockquote {
   border-left-color: #c09030;
-  background: rgba(192,144,48,.05);
-  color: #555;
+  background: rgba(192,144,48,.07);
+  color: #999;
   margin: 1.2em 0;
 }
-.pool-light .markdown-body hr { border-top-color: rgba(0,0,0,.1); }
+.pool-light .markdown-body hr { border-top-color: rgba(255,255,255,.1); }
 .pool-light .markdown-body th {
-  background: #ebebeb;
-  color: #111;
-  border-color: rgba(0,0,0,.1);
+  background: rgba(255,255,255,.07);
+  color: #e0e0e0;
+  border-color: rgba(255,255,255,.1);
 }
-.pool-light .markdown-body td { border-color: rgba(0,0,0,.1); }
-.pool-light .markdown-body tr:nth-child(even) { background: rgba(0,0,0,.02); }
+.pool-light .markdown-body td { border-color: rgba(255,255,255,.1); }
+.pool-light .markdown-body tr:nth-child(even) { background: rgba(255,255,255,.03); }
 .pool-light .markdown-body ul,
 .pool-light .markdown-body ol { margin: 0 0 1em; }
 .pool-light .markdown-body li { margin: .25em 0; }
