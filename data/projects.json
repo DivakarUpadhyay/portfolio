@@ -66,7 +66,7 @@
     "type": "FinTech · E-commerce",
     "name": "Bajaj Electricals Gift Card",
     "description": "End-to-end gift card service: code generation, email delivery, redemption, and payment management. Salesforce integration for UTM tracking and analytics.",
-    "tags": ["C# MVC", "Umbraco CMS", "Salesforce API", "AWS Beanstalk"],
+    "tags": ["C# MVC", "Umbraco CMS", "Salesforce API", "AWS S3 Bucket"],
     "category": "fintech",
     "github": "",
     "demo": "https://www.bajajelectricals.com/",

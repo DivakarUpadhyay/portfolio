@@ -74,10 +74,10 @@
       "Built Bajaj FinServ corporate web platform using Umbraco CMS, ASP.NET MVC and C#",
       "Implemented complete gift card service for Bajaj Electricals: code generation, email delivery, redemption, payment",
       "Integrated Salesforce APIs for UTM analytics and lead tracking",
-      "Migrated deployments from FTP to AWS Elastic Beanstalk, improving CI efficiency",
+      "Managed file storage and assets via AWS S3 Bucket; contributed to Tata DoCoMo mobile app in Vue.js",
       "Contributed to Tata DoCoMo mobile app using Vue.js"
     ],
-    "tech": ["C# MVC", "ASP.NET MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "XSLT", "Vue.js", "Umbraco CMS", "MSSQL", "AWS Elastic Beanstalk", "Salesforce API"]
+    "tech": ["C# MVC", "ASP.NET MVC", "REST API", "SOAP API", "Entity Framework", "LINQ", "XSLT", "Vue.js", "Umbraco CMS", "MSSQL", "AWS S3 Bucket", "Salesforce API"]
   },
   {
     "period": "Feb 2015 — May 2017",
