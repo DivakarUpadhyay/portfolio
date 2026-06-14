@@ -15,13 +15,13 @@ const STATUSES = ['in-progress', 'completed', 'archived']
 
 const EMPTY: Record<string, unknown> = {
   id: '', type: '', name: '', description: '', tags: '', category: 'enterprise',
-  github: '', demo: '', screenshot: '', featured: false, status: 'completed',
+  github: '', demo: '', screenshot: '', featured: false, status: 'completed', visible: true,
 }
 
 type Project = {
   id: string; type: string; name: string; description: string
   tags: string[] | string; category: string; github: string; demo: string
-  screenshot: string; featured: boolean; status: string
+  screenshot: string; featured: boolean; status: string; visible: boolean
 }
 
 function AdminShell({ children }: { children: React.ReactNode }) {
@@ -123,6 +123,11 @@ export default function ProjectsPage() {
     load()
   }
 
+  async function toggleVisible(p: Project) {
+    await fetch(`/api/admin/projects/${p.id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ visible: !p.visible }) })
+    load()
+  }
+
   const inp = (style = {}) => ({ width: '100%', padding: '9px 12px', background: '#fafafa', border: '1px solid rgba(0,0,0,.14)', borderRadius: 7, color: '#111', fontSize: 13, outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' as const, ...style })
 
   return (
@@ -151,7 +156,7 @@ export default function ProjectsPage() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 14 }}>
           {filtered.map(p => (
-            <div key={p.id} style={{ background: '#fff', border: '1px solid rgba(0,0,0,.09)', borderRadius: 10, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', flexDirection: 'column' }}>
+            <div key={p.id} style={{ background: '#fff', border: `1px solid ${p.visible === false ? 'rgba(0,0,0,.06)' : 'rgba(0,0,0,.09)'}`, borderRadius: 10, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', flexDirection: 'column', opacity: p.visible === false ? 0.6 : 1 }}>
               {/* Screenshot thumbnail */}
               <div style={{ width: '100%', height: 140, background: '#f5f5f5', overflow: 'hidden', position: 'relative', flexShrink: 0 }}>
                 {p.screenshot ? (
@@ -168,9 +173,15 @@ export default function ProjectsPage() {
                     <span style={{ fontSize: 10, color: '#ccc' }}>No screenshot</span>
                   </div>
                 )}
-                {/* Featured badge overlay */}
+                {/* Featured badge */}
                 {p.featured && (
-                  <span style={{ position: 'absolute', top: 8, right: 8, background: '#c09030', color: '#fff', borderRadius: 4, fontSize: 9, fontWeight: 700, padding: '2px 7px', letterSpacing: '.06em' }}>★ FEATURED</span>
+                  <span style={{ position: 'absolute', top: 8, left: 8, background: '#c09030', color: '#fff', borderRadius: 4, fontSize: 9, fontWeight: 700, padding: '2px 7px', letterSpacing: '.06em' }}>★ FEATURED</span>
+                )}
+                {/* Hidden overlay */}
+                {p.visible === false && (
+                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ background: 'rgba(0,0,0,.7)', color: '#fff', borderRadius: 6, fontSize: 11, fontWeight: 700, padding: '4px 10px', letterSpacing: '.05em' }}>HIDDEN FROM SITE</span>
+                  </div>
                 )}
               </div>
 
@@ -190,9 +201,16 @@ export default function ProjectsPage() {
                 </div>
                 <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
                   <button onClick={() => openEdit(p)} style={{ flex: 1, padding: '6px', fontSize: 11, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(0,0,0,.13)', borderRadius: 6, background: '#fff', color: '#444', fontFamily: 'inherit' }}>Edit</button>
+                  {/* Visibility toggle */}
+                  <button
+                    onClick={() => toggleVisible(p)}
+                    title={p.visible === false ? 'Hidden from portfolio — click to show' : 'Visible on portfolio — click to hide'}
+                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, cursor: 'pointer', border: `1px solid ${p.visible === false ? 'rgba(0,0,0,.13)' : '#b7ebc0'}`, borderRadius: 6, background: p.visible === false ? '#f9fafb' : '#f0fdf4', color: p.visible === false ? '#9ca3af' : '#16a34a', fontFamily: 'inherit', letterSpacing: '.02em' }}
+                  >{p.visible === false ? '○ Hidden' : '● Active'}</button>
+                  {/* Featured toggle */}
                   <button
                     onClick={() => toggleFeatured(p)}
-                    title={p.featured ? 'Remove from featured' : 'Mark as featured (shows in portfolio highlight section)'}
+                    title={p.featured ? 'Remove from featured' : 'Mark as featured'}
                     style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: `1px solid ${p.featured ? '#f0d98a' : 'rgba(0,0,0,.13)'}`, borderRadius: 6, background: p.featured ? '#fff8e6' : '#fff', color: p.featured ? '#c09030' : '#999', fontFamily: 'inherit' }}
                   >★</button>
                   <button onClick={() => del(p.id)} style={{ padding: '6px 10px', fontSize: 11, cursor: 'pointer', border: '1px solid rgba(220,38,38,.2)', borderRadius: 6, background: '#fff', color: '#dc2626', fontFamily: 'inherit' }}>✕</button>

@@ -17,11 +17,11 @@ export async function sbGetPortfolio<T>(key: string, fallback: T): Promise<T> {
   }
 }
 
-// Fetches all demo projects — no-store so admin adds/deletes are live immediately
+// Fetches visible demo projects only — no-store so admin toggles are live immediately
 export async function sbGetDemoProjects<T>(fallback: T): Promise<T> {
   try {
     const res = await fetch(
-      `${SB_URL}/rest/v1/demo_projects?select=*&order=id`,
+      `${SB_URL}/rest/v1/demo_projects?select=*&visible=eq.true&order=id`,
       { headers: SB_HDR, cache: 'no-store' }
     )
     if (!res.ok) return fallback
