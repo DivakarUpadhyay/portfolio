@@ -8,19 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg:       #ffffff;
-    --surface:  #f4f4f4;
-    --border:   #e0e0e0;
-    --accent:   #1e1e1e;
-    --text:     #1a1a1a;
-    --muted:    #555555;
-    --dim:      #888888;
-    --tag-bg:   #eeeeee;
+    --bg:      #ffffff;
+    --surface: #f4f4f4;
+    --border:  #e0e0e0;
+    --accent:  #1e1e1e;
+    --text:    #1a1a1a;
+    --muted:   #555555;
+    --dim:     #888888;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  @page { size: A4; margin: 0; }
+  /* Page margins applied to EVERY printed page automatically — no blank gaps */
+  @page { size: A4; margin: 12mm 15mm; }
 
   body {
     background: var(--bg);
@@ -32,10 +32,9 @@
     print-color-adjust: exact;
   }
 
-  .page {
-    width: 210mm;
-    margin: 0 auto;
-    padding: 11mm 14mm 10mm;
+  /* Screen only — centres content like A4 */
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 12mm 15mm; }
   }
 
   /* ── HEADER ── */
@@ -45,14 +44,15 @@
     align-items: flex-start;
     padding-bottom: 9px;
     border-bottom: 2px solid var(--accent);
-    margin-bottom: 11px;
+    margin-bottom: 10px;
+    break-inside: avoid;
   }
 
   .h-name {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 700;
     color: var(--accent);
-    letter-spacing: -0.4px;
+    letter-spacing: -0.3px;
     line-height: 1.1;
   }
 
@@ -86,10 +86,8 @@
     line-height: 1.85;
   }
 
-  .h-right a { color: var(--muted); text-decoration: none; }
-
   /* ── SECTION ── */
-  .sec { margin-bottom: 11px; }
+  .sec { margin-bottom: 10px; }
 
   .sec-title {
     font-size: 8.5px;
@@ -99,83 +97,43 @@
     color: var(--accent);
     background: var(--surface);
     padding: 3px 6px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     border-left: 3px solid var(--accent);
+    break-after: avoid;
   }
 
-  /* ── SUMMARY ── */
+  /* ── PROFILE ── */
   .summary {
     font-size: 10.5px;
     color: var(--muted);
     line-height: 1.55;
   }
-
   .summary strong { color: var(--text); font-weight: 600; }
 
   /* ── SKILLS ── */
-  .skills-rows { display: flex; flex-direction: column; gap: 3.5px; }
+  .skills-rows { display: flex; flex-direction: column; gap: 3px; }
 
-  .sk-row {
-    display: flex;
-    font-size: 10px;
-    line-height: 1.4;
-  }
-
-  .sk-cat {
-    min-width: 110px;
-    color: var(--text);
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-
+  .sk-row { display: flex; font-size: 10px; line-height: 1.4; break-inside: avoid; }
+  .sk-cat { min-width: 112px; color: var(--text); font-weight: 600; flex-shrink: 0; }
   .sk-vals { color: var(--muted); }
 
   /* ── EXPERIENCE ── */
   .exp {
-    margin-bottom: 9px;
-    padding-bottom: 9px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
+    break-inside: avoid;
   }
   .exp:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-  .exp-row1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+  .exp-row1 { display: flex; justify-content: space-between; align-items: baseline; }
 
-  .exp-role {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--accent);
-  }
+  .exp-role   { font-size: 11px; font-weight: 700; color: var(--accent); }
+  .exp-period { font-size: 9.5px; color: var(--dim); white-space: nowrap; font-family: 'Consolas', monospace; }
+  .exp-co     { font-size: 10px; color: var(--muted); font-weight: 500; margin-top: 1px; }
+  .exp-loc    { font-size: 9.5px; color: var(--dim); margin-top: 1px; margin-bottom: 5px; }
 
-  .exp-period {
-    font-size: 9.5px;
-    color: var(--dim);
-    white-space: nowrap;
-    font-family: 'Consolas', monospace;
-  }
-
-  .exp-co {
-    font-size: 10px;
-    color: var(--muted);
-    font-weight: 500;
-    margin-top: 1px;
-  }
-
-  .exp-loc {
-    font-size: 9.5px;
-    color: var(--dim);
-    margin-bottom: 5px;
-    margin-top: 1px;
-  }
-
-  ul.exp-pts {
-    list-style: none;
-    margin-bottom: 5px;
-  }
-
+  ul.exp-pts { list-style: none; margin-bottom: 4px; }
   ul.exp-pts li {
     font-size: 10px;
     color: var(--text);
@@ -184,7 +142,6 @@
     margin-bottom: 2px;
     line-height: 1.45;
   }
-
   ul.exp-pts li::before {
     content: '·';
     position: absolute;
@@ -192,14 +149,9 @@
     color: var(--dim);
     font-size: 12px;
     line-height: 1;
-    top: 0px;
   }
 
-  .exp-stack {
-    font-size: 9.5px;
-    color: var(--dim);
-  }
-
+  .exp-stack   { font-size: 9.5px; color: var(--dim); }
   .exp-stack b { color: var(--muted); font-weight: 600; }
 
   /* ── PROJECTS ── */
@@ -207,52 +159,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px 16px;
+    break-inside: avoid;
   }
+  .proj-name { font-size: 10.5px; font-weight: 600; color: var(--accent); }
+  .proj-desc { font-size: 9.5px; color: var(--muted); margin-top: 1px; line-height: 1.4; }
 
-  .proj-name {
-    font-size: 10.5px;
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  .proj-desc {
-    font-size: 9.5px;
-    color: var(--muted);
-    margin-top: 1px;
-    line-height: 1.4;
-  }
-
-  /* ── EDUCATION / ADDITIONAL ── */
+  /* ── EDUCATION + ADDITIONAL ── */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 20px;
+    break-inside: avoid;
   }
-
-  .edu-deg  { font-size: 11px; font-weight: 700; color: var(--accent); }
-  .edu-uni  { font-size: 10px; color: var(--muted); margin-top: 1px; }
-  .edu-yr   { font-size: 9.5px; color: var(--dim); margin-top: 1px; }
-
-  .add-row  {
-    font-size: 9.5px;
-    color: var(--muted);
-    margin-bottom: 2px;
-  }
+  .edu-deg { font-size: 11px; font-weight: 700; color: var(--accent); }
+  .edu-uni { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .edu-yr  { font-size: 9.5px; color: var(--dim); margin-top: 1px; }
+  .add-row { font-size: 9.5px; color: var(--muted); margin-bottom: 2px; }
   .add-row b { color: var(--text); font-weight: 600; }
-
-  /* ── PAGE BREAK ── */
-  .page-break { break-before: page; }
-
-  @media print {
-    body { background: #fff !important; }
-    .page { padding: 11mm 14mm 10mm; }
-  }
 </style>
 </head>
 <body>
-
-<!-- ═══ PAGE 1 ═══ -->
-<div class="page">
 
   <header>
     <div>
@@ -269,7 +195,7 @@
     </div>
   </header>
 
-  <!-- SUMMARY -->
+  <!-- PROFILE -->
   <section class="sec">
     <div class="sec-title">Profile</div>
     <p class="summary">
@@ -293,7 +219,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE PAGE 1 -->
+  <!-- EXPERIENCE — single section, all 6 roles -->
   <section class="sec">
     <div class="sec-title">Work Experience</div>
 
@@ -322,7 +248,7 @@
       <div class="exp-co">Skywind Co. Ltd — deployed on-site at Acer Group Taiwan</div>
       <div class="exp-loc">New Taipei City, Taiwan</div>
       <ul class="exp-pts">
-        <li>Maintained and extended Acer's in-house Contact Service System used by repair centres and partner networks across Taiwan</li>
+        <li>Maintained and extended Acer's in-house Contact Service System for repair centres and partner networks across Taiwan</li>
         <li>TNT/FedEx EDI integration (multiple document formats), DHL Payment Gateway, full i18n localisation rollout</li>
         <li>Built end-to-end SSRS reporting suite (20+ reports) and automated data pipelines using SSIS</li>
         <li>Daily scrums with Acer PMs, requirement analysis, IT and UAT release cycle management</li>
@@ -345,17 +271,6 @@
       <div class="exp-stack"><b>Stack:</b> C# · .NET Core MVC · REST/SOAP API · Entity Framework · MSSQL</div>
     </div>
 
-  </section>
-
-
-</div>
-
-<!-- ═══ PAGE 2 ═══ -->
-<div class="page page-break">
-
-  <section class="sec">
-    <div class="sec-title">Work Experience (continued)</div>
-
     <div class="exp">
       <div class="exp-row1">
         <span class="exp-role">Senior Software Engineer</span>
@@ -366,7 +281,7 @@
       <ul class="exp-pts">
         <li>Built inventory and grading software for diamond retailers (Ketan Brothers, M.B. Mehta) and global labs (IGI, GIA)</li>
         <li>DefExpo 2020 and ITME 2022 event management systems with official DefExpo API for exhibitor registration</li>
-        <li>IGI grading portal — e-signature module, camera library, Rapaport API, Crystal Reports via generic method loader, global data sync service</li>
+        <li>IGI grading portal — e-signature, camera library, Rapaport API, Crystal Reports via generic method loader, global data sync</li>
       </ul>
       <div class="exp-stack"><b>Stack:</b> VB.Net · C# MVC · .NET Core MVC · REST/SOAP API · Entity Framework · MSSQL · Crystal Reports · Rapaport API</div>
     </div>
@@ -379,7 +294,7 @@
       <div class="exp-co">Fulcro world (IBS) Digital Solution — FinTech / FMCG</div>
       <div class="exp-loc">Mumbai, India &nbsp;·&nbsp; Clients: Bajaj FinServ, Bajaj Electricals, Tata DoCoMo</div>
       <ul class="exp-pts">
-        <li>Bajaj FinServ corporate platform — Umbraco CMS, ASP.NET MVC, Salesforce API integration for UTM analytics and lead tracking</li>
+        <li>Bajaj FinServ corporate platform — Umbraco CMS, ASP.NET MVC, Salesforce API for UTM analytics and lead tracking</li>
         <li>Bajaj Electricals gift card service — code generation, email delivery, online redemption and payment end-to-end</li>
         <li>Managed file storage via AWS S3 Bucket; contributed to Tata DoCoMo mobile app in Vue.js</li>
       </ul>
@@ -409,24 +324,24 @@
     <div class="proj-grid">
       <div>
         <div class="proj-name">AMG Web3 Ecosystem</div>
-        <div class="proj-desc">Tokenised RWA investment platform — FOUNDATION &amp; FRONTIER products, Solidity vaults, KYC compliance gates, on-chain settlement, investor + admin portals</div>
+        <div class="proj-desc">Tokenised RWA investment platform — FOUNDATION &amp; FRONTIER, Solidity vaults, KYC compliance gates, on-chain settlement, investor + admin portals</div>
       </div>
       <div>
         <div class="proj-name">Acer Contact Service System</div>
-        <div class="proj-desc">Service centre management for Acer Taiwan — FedEx/TNT EDI, DHL payment gateway, 20+ SSRS reports, SSIS pipelines, i18n localisation</div>
+        <div class="proj-desc">Service centre management for Acer Taiwan — FedEx/TNT EDI, DHL payment gateway, 20+ SSRS reports, SSIS pipelines, i18n</div>
       </div>
       <div>
         <div class="proj-name">HealthAssure Corporate Platform</div>
-        <div class="proj-desc">Health benefits platform with Apollo Pharmacy &amp; Doc24x7 integrations; REST APIs powering iOS and Android apps for enterprise clients</div>
+        <div class="proj-desc">Health benefits platform with Apollo Pharmacy &amp; Doc24x7 integrations; REST APIs powering iOS and Android apps</div>
       </div>
       <div>
         <div class="proj-name">IGI Laboratory System</div>
-        <div class="proj-desc">Diamond grading portal — e-signature, camera library, Rapaport API, global data sync executable, Crystal Reports generic loader</div>
+        <div class="proj-desc">Diamond grading portal — e-signature, camera library, Rapaport API, global data sync, Crystal Reports generic loader</div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION + ADDITIONAL (side by side) -->
+  <!-- EDUCATION + ADDITIONAL -->
   <section class="sec">
     <div class="sec-title">Education &amp; Additional</div>
     <div class="two-col">
@@ -442,9 +357,6 @@
       </div>
     </div>
   </section>
-
-
-</div>
 
 </body>
 </html>
