@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -61,6 +61,19 @@ export default function ProjectsPage() {
   const [modal, setModal] = useState(false)
   const [form, setForm] = useState<Record<string, unknown>>(EMPTY)
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const fileRef = useRef<HTMLInputElement>(null)
+
+  async function uploadImage(file: File) {
+    setUploading(true)
+    const fd = new FormData()
+    fd.append('file', file)
+    const res = await fetch('/api/admin/upload', { method: 'POST', body: fd })
+    const json = await res.json()
+    setUploading(false)
+    if (json.url) setForm(f => ({ ...f, screenshot: json.url }))
+    else alert('Upload failed: ' + (json.error || 'unknown error'))
+  }
 
   async function load() {
     setLoading(true)
@@ -173,8 +186,8 @@ export default function ProjectsPage() {
               <button onClick={() => setModal(false)} style={{ background: 'none', border: 'none', fontSize: 18, cursor: 'pointer', color: '#999' }}>✕</button>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-              {[['id', 'ID (slug)'], ['type', 'Type'], ['name', 'Name'], ['category', 'Category'], ['github', 'GitHub URL'], ['demo', 'Demo URL'], ['screenshot', 'Screenshot path'], ['status', 'Status']].map(([k, lbl]) => (
-                <div key={k} style={{ gridColumn: ['name', 'screenshot'].includes(k) ? 'span 2' : undefined }}>
+              {[['id', 'ID (slug)'], ['type', 'Type'], ['name', 'Name'], ['category', 'Category'], ['github', 'GitHub URL'], ['demo', 'Demo URL'], ['status', 'Status']].map(([k, lbl]) => (
+                <div key={k} style={{ gridColumn: k === 'name' ? 'span 2' : undefined }}>
                   <label style={{ display: 'block', fontSize: '10.5px', fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 4 }}>{lbl}</label>
                   {k === 'category' ? (
                     <select value={String(form[k] || '')} onChange={e => setForm(f => ({ ...f, [k]: e.target.value }))} style={inp()}>
@@ -189,6 +202,58 @@ export default function ProjectsPage() {
                   )}
                 </div>
               ))}
+              {/* Screenshot upload */}
+              <div style={{ gridColumn: 'span 2' }}>
+                <label style={{ display: 'block', fontSize: '10.5px', fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 6 }}>Screenshot</label>
+                <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                  {/* Preview */}
+                  <div
+                    onClick={() => fileRef.current?.click()}
+                    style={{ width: 100, height: 72, border: '2px dashed rgba(0,0,0,.13)', borderRadius: 8, overflow: 'hidden', flexShrink: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fafafa', position: 'relative' }}
+                  >
+                    {form.screenshot ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={String(form.screenshot)} alt="preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
+                    ) : (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    )}
+                    {uploading && (
+                      <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,.8)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: 20, height: 20, border: '2px solid rgba(192,144,48,.2)', borderTopColor: '#c09030', borderRadius: '50%', animation: 'spin .7s linear infinite' }} />
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <input
+                      value={String(form.screenshot || '')}
+                      onChange={e => setForm(f => ({ ...f, screenshot: e.target.value }))}
+                      placeholder="/screenshots/project.png or https://…"
+                      style={inp()}
+                    />
+                    <div style={{ display: 'flex', gap: 6 }}>
+                      <button
+                        type="button"
+                        onClick={() => fileRef.current?.click()}
+                        disabled={uploading}
+                        style={{ padding: '5px 12px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(0,0,0,.15)', background: '#fff', color: '#444', fontFamily: 'inherit', opacity: uploading ? .6 : 1 }}
+                      >
+                        {uploading ? 'Uploading…' : '↑ Upload image'}
+                      </button>
+                      {!!form.screenshot && (
+                        <button type="button" onClick={() => setForm(f => ({ ...f, screenshot: '' }))} style={{ padding: '5px 10px', borderRadius: 6, fontSize: 11, cursor: 'pointer', border: '1px solid rgba(220,38,38,.2)', background: '#fff', color: '#dc2626', fontFamily: 'inherit' }}>✕ Clear</button>
+                      )}
+                    </div>
+                    <span style={{ fontSize: 10, color: '#bbb' }}>PNG, JPG, WebP, SVG · uploads to Supabase Storage</span>
+                  </div>
+                </div>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml"
+                  style={{ display: 'none' }}
+                  onChange={e => { const f = e.target.files?.[0]; if (f) uploadImage(f); e.target.value = '' }}
+                />
+              </div>
               <div style={{ gridColumn: 'span 2' }}>
                 <label style={{ display: 'block', fontSize: '10.5px', fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 4 }}>Tags (comma-separated)</label>
                 <input value={String(form.tags || '')} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))} style={inp()} />
