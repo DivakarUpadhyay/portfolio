@@ -124,7 +124,7 @@ export default function TopicsPage() {
         </div>
       </div>
 
-      <div style={{ background: '#fff', border: '1px solid rgba(0,0,0,.08)', borderRadius: 10, overflow: 'hidden' }}>
+      <div style={{ background: '#fff', border: '1px solid rgba(0,0,0,.08)', borderRadius: 10, overflowX: 'auto' }}>
         {loading ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 64, gap: 12 }}>
             <div style={{ width: 32, height: 32, border: '3px solid rgba(192,144,48,.15)', borderTopColor: '#c09030', borderRadius: '50%', animation: 'spin .7s linear infinite' }} />
@@ -133,7 +133,7 @@ export default function TopicsPage() {
         ) : slice.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '48px 0', color: '#bbb', fontSize: 13 }}>No topics found</div>
         ) : (
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <table style={{ width: '100%', minWidth: 620, borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ background: '#fafafa', borderBottom: '1px solid rgba(0,0,0,.07)' }}>
                 {['#', 'Title', 'Slug', 'Published', 'Active', ''].map(h => (

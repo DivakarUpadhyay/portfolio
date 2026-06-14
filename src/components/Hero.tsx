@@ -27,7 +27,7 @@ const CODE_SNIPPETS = [
   'INNER JOIN tbl ON id = fk',
 ]
 
-const TECH_TAGS = ['.NET 8', 'AngularJS', 'Next.js', 'Solidity', 'MSSQL']
+const TECH_TAGS = ['.NET 8', 'AngularJS', 'Next.js', 'Solidity', 'MSSQL', 'Docker']
 
 function GitHubIcon() {
   return (
