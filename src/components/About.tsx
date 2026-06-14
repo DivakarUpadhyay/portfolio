@@ -97,10 +97,6 @@ export default function About({ profile, skills }: { profile: Profile; skills: S
                 </span>
               </div>
               <div className="meta-item">
-                <span className="meta-key">Phone / WhatsApp</span>
-                <span className="meta-val">{profile.phone}</span>
-              </div>
-              <div className="meta-item">
                 <span className="meta-key">Line ID</span>
                 <span className="meta-val">{profile.lineId}</span>
               </div>
