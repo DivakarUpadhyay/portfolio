@@ -78,7 +78,7 @@ export default function AdminLogin() {
         <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(0,0,0,.07)' }}>
           <div style={{ fontSize: 11, color: '#aaa', textAlign: 'center', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 600 }}>Mobile App</div>
           <a
-            href="/downloads/lms-interactive.apk"
+            href="https://github.com/DivakarUpadhyay/portfolio/releases/latest/download/lms-interactive.apk"
             download="LMS-Interactive.apk"
             style={{
               display: 'flex', alignItems: 'center', gap: 12,
