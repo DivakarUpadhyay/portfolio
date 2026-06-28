@@ -1,0 +1,3 @@
+-keep class com.amga.lmsint.data.model.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*

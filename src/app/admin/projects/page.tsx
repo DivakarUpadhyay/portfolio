@@ -93,6 +93,12 @@ export default function ProjectsPage() {
     setModal(true)
   }
 
+  function handleNameChange(name: string) {
+    const isEditing = projects.some(p => p.id === form.id)
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    setForm(f => ({ ...f, name, ...(!isEditing && !f.id ? { id: slug } : {}) }))
+  }
+
   function openEdit(p: Project) {
     setForm({ ...p, tags: Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || '') })
     setModal(true)
@@ -102,12 +108,21 @@ export default function ProjectsPage() {
     setSaving(true)
     const body = { ...form, tags: String(form.tags || '').split(',').map((t: string) => t.trim()).filter(Boolean), featured: !!form.featured }
     const editing = projects.some(p => p.id === form.id)
-    if (editing) {
-      await fetch(`/api/admin/projects/${form.id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
-    } else {
-      await fetch('/api/admin/projects', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+    try {
+      const res = editing
+        ? await fetch(`/api/admin/projects/${form.id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        : await fetch('/api/admin/projects', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: 'Unknown error' }))
+        alert('Save failed: ' + (err.error || JSON.stringify(err)))
+        return
+      }
+    } catch (e) {
+      alert('Save failed: ' + String(e))
+      return
+    } finally {
+      setSaving(false)
     }
-    setSaving(false)
     setModal(false)
     load()
   }
@@ -240,6 +255,8 @@ export default function ProjectsPage() {
                     <select value={String(form[k] || '')} onChange={e => setForm(f => ({ ...f, [k]: e.target.value }))} style={inp()}>
                       {STATUSES.map(s => <option key={s}>{s}</option>)}
                     </select>
+                  ) : k === 'name' ? (
+                    <input value={String(form[k] || '')} onChange={e => handleNameChange(e.target.value)} style={inp()} />
                   ) : (
                     <input value={String(form[k] || '')} onChange={e => setForm(f => ({ ...f, [k]: e.target.value }))} style={inp()} />
                   )}

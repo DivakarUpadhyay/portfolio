@@ -74,6 +74,28 @@ export default function AdminLogin() {
           </button>
         </form>
         <div style={{ textAlign: 'center', fontSize: 11, color: '#999', marginTop: 18 }}>Admin access only</div>
+
+        <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(0,0,0,.07)' }}>
+          <div style={{ fontSize: 11, color: '#aaa', textAlign: 'center', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 600 }}>Mobile App</div>
+          <a
+            href="/downloads/lms-interactive.apk"
+            download="LMS-Interactive.apk"
+            style={{
+              display: 'flex', alignItems: 'center', gap: 12,
+              padding: '11px 14px',
+              background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+              borderRadius: 10, textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,.08)',
+            }}
+          >
+            <div style={{ fontSize: 22, lineHeight: 1 }}>📱</div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#fff' }}>LMS Interactive</div>
+              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.5)', marginTop: 1 }}>Android APK · Debug build</div>
+            </div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', background: 'rgba(74,222,128,.12)', padding: '3px 8px', borderRadius: 5 }}>↓ APK</div>
+          </a>
+        </div>
       </div>
     </div>
   )
